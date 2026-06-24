@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
+  ArrowUpRight,
   Clock,
   Mail,
   MapPin,
@@ -25,7 +26,7 @@ const Contact = () => {
       title="Prenota una consulenza"
       description="Ricevo in studio a Varese e sono disponibile anche online. Il primo passo è una chiacchierata per capire di cosa hai bisogno — senza impegno."
     >
-      <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+      <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-stretch">
         <div className="space-y-6">
           <div className="grid gap-3 text-sm text-slate-700">
             <ContactField
@@ -83,47 +84,52 @@ const Contact = () => {
         </div>
 
         {location && (
-          <div className="space-y-6">
-            <div className="overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft">
-              <div className="grid grid-cols-2">
+          <a
+            href={location.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Apri ${location.label} su Google Maps`}
+            className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft transition hover:-translate-y-0.5 hover:border-brand-primary/40 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+          >
+            <div className="relative min-h-[12rem] flex-1">
+              <div className="absolute inset-0 grid grid-cols-2">
                 <img
                   src={getAssetUrl("images/interno-studio-luogo-lavoro.png")}
                   alt="Interno dello studio Panorama Salute a Varese"
-                  className="h-48 w-full object-cover sm:h-56"
+                  className="h-full w-full object-cover"
                   loading="lazy"
                 />
                 <img
                   src={getAssetUrl("images/esterno-luogo-lavoro.png")}
                   alt="Esterno dello studio Panorama Salute a Varese"
-                  className="h-48 w-full object-cover sm:h-56"
+                  className="h-full w-full object-cover"
                   loading="lazy"
                 />
-              </div>
-              <div className="flex items-center gap-4 border-t border-brand-primary/10 p-5">
-                <img
-                  src={getAssetUrl("images/logo-luogo-lavoro.png")}
-                  alt="Logo Panorama Salute"
-                  className="h-14 w-14 flex-none rounded-xl object-contain"
-                  loading="lazy"
-                />
-                <div className="space-y-1 text-sm">
-                  <p className="font-heading text-base font-extrabold text-slate-900">
-                    {location.label}
-                  </p>
-                  <p className="text-slate-600">{location.address}</p>
-                </div>
               </div>
             </div>
-            <div className="overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft">
-              <iframe
-                title={`Indicazioni per ${location.label}`}
-                src={location.embedUrl}
+            <div className="flex items-center gap-4 border-t border-brand-primary/10 p-5">
+              <img
+                src={getAssetUrl("images/logo-luogo-lavoro.png")}
+                alt="Logo Panorama Salute"
+                className="h-14 w-14 flex-none rounded-xl object-contain"
                 loading="lazy"
-                className="h-56 w-full border-0"
-                allowFullScreen
               />
+              <div className="space-y-1 text-sm">
+                <p className="font-heading text-base font-extrabold text-slate-900">
+                  {location.label}
+                </p>
+                <p className="text-slate-600">{location.address}</p>
+                <p className="inline-flex items-center gap-1.5 font-semibold text-brand-primary">
+                  <MapPin className="h-4 w-4" aria-hidden="true" />
+                  Apri in Google Maps
+                  <ArrowUpRight
+                    className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    aria-hidden="true"
+                  />
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         )}
       </div>
     </Section>

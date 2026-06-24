@@ -24,7 +24,7 @@ const credentials = [
 
 const About = () => {
   return (
-    <Section id="about" eyebrow="Chi sono" title="Chi sono">
+    <Section id="about" title="Chi sono">
       <div className="grid gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
         <div className="relative hidden md:block">
           <div className="absolute inset-0 -left-6 -top-6 rounded-3xl bg-brand-primary/10" />

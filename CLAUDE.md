@@ -41,3 +41,13 @@ Quando si collegherà un dominio custom alla root: rimuovere `VITE_GHPAGES_BASE`
 **Flusso prenotazione / CTA** ([src/utils/booking.ts](src/utils/booking.ts)): `buildWhatsAppLink` costruisce un deep link `wa.me` a partire da numero + messaggio; `handleBookVisit` fa uno smooth-scroll fino a `#contact`. `StickyActions` è la barra flottante chiama/WhatsApp sempre visibile; il pulsante "Prenota" nell'header attiva lo scroll.
 
 **Helper condivisi:** [src/components/Section.tsx](src/components/Section.tsx) è il guscio di sezione riutilizzabile (eyebrow + titolo + descrizione + container a larghezza massima) — usalo per le nuove sezioni di contenuto. [src/utils/cn.ts](src/utils/cn.ts) è l'helper per unire le className. Le icone arrivano da `lucide-react`. I componenti usano **default export** e import relativi; TypeScript è in modalità **strict**.
+
+## Lavori in sospeso (TODO)
+
+Cose ancora da fare sul sito, in attesa di dati dalla cliente o di una decisione. Aggiorna questa lista quando un punto viene chiuso.
+
+- **Dominio reale** — ovunque c'è il placeholder `DOMINIO-DA-DEFINIRE.it`. Quando si avrà il dominio: sostituirlo in [index.html](index.html) (`canonical`, `og:url`, `og:image`, JSON-LD schema.org), creare il `CNAME` e **rimuovere `VITE_GHPAGES_BASE` dal workflow** ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)) per riportare il `base` alla root.
+- **P.IVA** — in [src/components/Footer.tsx](src/components/Footer.tsx) è ancora "da aggiungere". Per un professionista con partita IVA l'indicazione sul sito è **obbligatoria**: serve il numero reale.
+- **Headline hero** — "Mangi bene. Ti alleni meglio. Vivi al massimo." in [src/components/Hero.tsx](src/components/Hero.tsx) era marcata "DA CAPIRE" dalla cliente → da confermare/riscrivere.
+- **Privacy & cookie (GDPR)** — il sito non ha form né analytics, ma carica **Google Fonts** da server Google ([index.html](index.html)) e incorpora la **mappa Google** in [src/components/Contact.tsx](src/components/Contact.tsx) (iframe con cookie di profilazione). Servono: **privacy policy** (obbligatoria) e **cookie banner + cookie policy** (per via della mappa). Due strade da combinare: (A) generare le policy + banner con **Iubenda** (piano free); (B) ridurre il problema in codice — **self-hostare i Google Fonts** e rendere la mappa **click-to-load** (carica solo dopo consenso, oppure immagine statica + link a Maps). Poi collegare i link "Privacy Policy"/"Cookie Policy" nel footer.
+- **SEO minore** — il campo `sameAs` nel JSON-LD di [index.html](index.html) è vuoto (`[""]`): aggiungere i profili social di Beatrice (Instagram/LinkedIn) se disponibili.
