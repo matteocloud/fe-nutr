@@ -30,7 +30,7 @@ const About = () => {
           <div className="absolute inset-0 -left-6 -top-6 rounded-3xl bg-brand-primary/10" />
           <div className="relative overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft">
             <img
-              src={getAssetUrl("images/beatrice-placeholder.svg")}
+              src={getAssetUrl("images/Beatrice-copertina.jpeg")}
               alt="Ritratto professionale di Beatrice Ferrari, biologa nutrizionista"
               className="h-full w-full object-cover object-center"
             />

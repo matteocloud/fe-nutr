@@ -60,7 +60,7 @@ const Hero = () => {
           <div className="absolute inset-0 -translate-x-6 scale-105 rounded-[3rem] bg-brand-primary/10 blur-3xl" />
           <div className="relative overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft">
             <img
-              src={getAssetUrl("images/beatrice-placeholder.svg")}
+              src={getAssetUrl("images/Beatrice-copertina.jpeg")}
               alt="Beatrice Ferrari, biologa nutrizionista"
               className="h-full w-full object-cover object-center"
             />
