@@ -1,4 +1,7 @@
+import { useCallback, useState } from "react";
+import { ZoomIn } from "lucide-react";
 import Section from "./Section";
+import Lightbox, { type LightboxImage } from "./Lightbox";
 import { getAssetUrl } from "../utils/assets";
 
 const biographyText = `
@@ -11,7 +14,7 @@ Insegno anche biologia al liceo, e questa doppia vita mi ha reso una comunicatri
 Il mio approccio? Basato sull'evidenza scientifica, cucito su di te. Perché ogni persona — e soprattutto ogni atleta — è diversa.
 `.trim();
 
-const credentials = [
+const credentials: LightboxImage[] = [
   {
     src: "images/ordine-biologi-della-lombardia.png",
     alt: "Iscritta all'Ordine dei Biologi della Lombardia, n. AA_101264"
@@ -23,6 +26,9 @@ const credentials = [
 ];
 
 const About = () => {
+  const [activeCredential, setActiveCredential] = useState<LightboxImage | null>(null);
+  const closeLightbox = useCallback(() => setActiveCredential(null), []);
+
   return (
     <Section id="about" title="Chi sono">
       <div className="grid gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
@@ -49,16 +55,28 @@ const About = () => {
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-10 md:gap-16">
           {credentials.map((credential) => (
-            <img
+            <button
               key={credential.src}
-              src={getAssetUrl(credential.src)}
-              alt={credential.alt}
-              className="h-20 w-auto object-contain opacity-90 transition hover:opacity-100 md:h-24"
-              loading="lazy"
-            />
+              type="button"
+              onClick={() => setActiveCredential(credential)}
+              aria-label={`Ingrandisci: ${credential.alt}`}
+              className="group relative rounded-xl transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-accent"
+            >
+              <img
+                src={getAssetUrl(credential.src)}
+                alt={credential.alt}
+                className="h-20 w-auto object-contain opacity-90 transition group-hover:scale-105 group-hover:opacity-100 md:h-24"
+                loading="lazy"
+              />
+              <span className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-xl bg-slate-900/0 opacity-0 transition group-hover:bg-slate-900/5 group-hover:opacity-100">
+                <ZoomIn className="h-6 w-6 text-brand-primary" aria-hidden="true" />
+              </span>
+            </button>
           ))}
         </div>
       </div>
+
+      <Lightbox image={activeCredential} onClose={closeLightbox} />
     </Section>
   );
 };
