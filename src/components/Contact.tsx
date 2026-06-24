@@ -91,7 +91,7 @@ const Contact = () => {
             aria-label={`Apri ${location.label} su Google Maps`}
             className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft transition hover:-translate-y-0.5 hover:border-brand-primary/40 hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
           >
-            <div className="relative min-h-[12rem] flex-1">
+            <div className="relative min-h-[12rem] flex-1 overflow-hidden">
               <div className="absolute inset-0 grid grid-cols-2">
                 <img
                   src={getAssetUrl("images/interno-studio-luogo-lavoro.png")}
@@ -107,7 +107,7 @@ const Contact = () => {
                 />
               </div>
             </div>
-            <div className="flex items-center gap-4 border-t border-brand-primary/10 p-5">
+            <div className="flex flex-none items-center gap-4 border-t border-brand-primary/10 p-5">
               <img
                 src={getAssetUrl("images/logo-luogo-lavoro.png")}
                 alt="Logo Panorama Salute"
