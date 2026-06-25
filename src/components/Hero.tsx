@@ -32,6 +32,14 @@ const Hero = () => {
             <br />
             <span className="text-brand-primary">Vivi al massimo.</span>
           </h1>
+          <div className="relative overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft md:hidden">
+            <img
+              src={getAssetUrl("images/Beatrice-copertina.jpeg")}
+              alt="Beatrice Ferrari, biologa nutrizionista"
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 to-transparent" />
+          </div>
           <p className="max-w-xl text-lg text-slate-600">
             Sono Beatrice, biologa nutrizionista e atleta. Ti aiuto a costruire
             un&apos;alimentazione su misura per i tuoi obiettivi — che tu voglia
@@ -56,7 +64,7 @@ const Hero = () => {
             </button>
           </div>
         </div>
-        <div className="relative flex-1">
+        <div className="relative hidden flex-1 md:block">
           <div className="absolute inset-0 -translate-x-6 scale-105 rounded-[3rem] bg-brand-primary/10 blur-3xl" />
           <div className="relative overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft">
             <img
