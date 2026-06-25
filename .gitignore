@@ -8,3 +8,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 coverage
+
+# Documento interno per gli sviluppatori: tenuto solo in locale, non pubblicato (repo pubblico)
+CLAUDE.md
