@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { ZoomIn } from "lucide-react";
+import { ArrowUpRight, ZoomIn } from "lucide-react";
 import Section from "./Section";
 import Lightbox, { type LightboxImage } from "./Lightbox";
 import { getAssetUrl } from "../utils/assets";
@@ -25,6 +25,27 @@ const credentials: LightboxImage[] = [
   }
 ];
 
+const ARTICLES_AUTHOR_URL = "https://atletaibrido.it/atleta/beatrice-ferrari/";
+
+const articles: { title: string; url: string }[] = [
+  {
+    title: "Pasto libero senza sensi di colpa: come gestirlo",
+    url: "https://atletaibrido.it/pasto-libero-gestirlo-senza-sensi-di-colpa/"
+  },
+  {
+    title: "Disturbi gastrointestinali negli sportivi: 4 consigli per prevenirli",
+    url: "https://atletaibrido.it/disturbi-gastrointestinali-4-consigli-per-evitare/"
+  },
+  {
+    title: "La periodizzazione nutrizionale: cos'è e come applicarla",
+    url: "https://atletaibrido.it/periodizzazione-nutrizionale-alimentazione/"
+  },
+  {
+    title: "LEA e deficit energetico: sintomi e rischi per gli atleti",
+    url: "https://atletaibrido.it/lea-e-deficit-energetico-rischi-e-sintomi/"
+  }
+];
+
 const About = () => {
   const [activeCredential, setActiveCredential] = useState<LightboxImage | null>(null);
   const closeLightbox = useCallback(() => setActiveCredential(null), []);
@@ -32,12 +53,12 @@ const About = () => {
   return (
     <Section id="about" title="Chi sono">
       <div className="grid gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:items-center">
-        <div className="relative hidden md:block">
-          <div className="absolute inset-0 -left-6 -top-6 rounded-3xl bg-brand-primary/10" />
-          <div className="relative overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft">
+        <div className="relative">
+          <div className="absolute inset-0 rounded-3xl bg-brand-primary/10 md:-left-6 md:-top-6" />
+          <div className="relative aspect-[3/4] overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft">
             <img
-              src={getAssetUrl("images/Beatrice-copertina.jpeg")}
-              alt="Ritratto professionale di Beatrice Ferrari, biologa nutrizionista"
+              src={getAssetUrl("images/Beatrice-foto-sportiva.jpg")}
+              alt="Beatrice Ferrari durante un allenamento in palestra, affondo con sandbag"
               className="h-full w-full object-cover object-center"
             />
           </div>
@@ -73,6 +94,41 @@ const About = () => {
               </span>
             </button>
           ))}
+        </div>
+      </div>
+
+      <div className="mt-4 border-t border-brand-primary/10 pt-10">
+        <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-brand-muted">
+          I miei articoli
+        </p>
+        <ul className="mx-auto mt-8 max-w-2xl space-y-2">
+          {articles.map((article) => (
+            <li key={article.url}>
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-3 rounded-xl px-3 py-2 text-slate-600 transition hover:bg-brand-primary/5 hover:text-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+              >
+                <ArrowUpRight
+                  className="mt-1 h-4 w-4 flex-none text-brand-primary/60 transition group-hover:text-brand-primary"
+                  aria-hidden="true"
+                />
+                <span className="text-base font-medium leading-snug">{article.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-6 text-center">
+          <a
+            href={ARTICLES_AUTHOR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary transition hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent"
+          >
+            Leggi tutti gli articoli su Atleta Ibrido
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </a>
         </div>
       </div>
 
