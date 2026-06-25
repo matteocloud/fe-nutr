@@ -67,7 +67,7 @@ const Header = () => {
           isScrolled ? "bg-surface/95 border-outline shadow-sm" : "bg-surface/70"
         )}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 md:px-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-10">
           <a
             href="#hero"
             className="flex items-center gap-3 text-left"
@@ -77,12 +77,12 @@ const Header = () => {
             }}
             aria-label="Torna all'inizio"
           >
-            <LogoCB className="h-14 w-14" />
+            <LogoCB className="h-20 w-20" />
             <span className="hidden flex-col leading-tight sm:flex">
-              <span className="font-heading text-base font-extrabold uppercase tracking-[0.18em] text-brand-accent">
+              <span className="font-heading text-xl font-extrabold uppercase tracking-[0.18em] text-brand-accent">
                 Beatrice Ferrari
               </span>
-              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-primary">
+              <span className="text-base font-semibold uppercase tracking-[0.3em] text-brand-primary">
                 Biologa Nutrizionista
               </span>
             </span>
