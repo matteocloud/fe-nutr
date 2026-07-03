@@ -6,6 +6,10 @@ export default defineConfig(({ mode }) => {
   return {
     base: env.VITE_GHPAGES_BASE ? `${env.VITE_GHPAGES_BASE}` : "/",
     plugins: [react()],
+    server: {
+      // Consente a tool esterni (es. anteprima) di assegnare una porta diversa da 5173
+      port: process.env.PORT ? Number(process.env.PORT) : 5173
+    },
     build: {
       outDir: "dist",
       sourcemap: mode === "development"
