@@ -27,11 +27,8 @@ jobs:
         run: npm install
 
       - name: Build project
+        # Sito servito dal dominio custom alla root: nessun VITE_GHPAGES_BASE (base = /).
         run: npm run build
-        env:
-          # Sito servito su https://matteocloud.github.io/fe-nutr/ (sottocartella).
-          # Quando si collega un dominio custom (root), rimuovere questa env e ripristinare il CNAME.
-          VITE_GHPAGES_BASE: /fe-nutr/
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
@@ -39,5 +36,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           force_orphan: true
+          # Rigenera il file CNAME a ogni deploy: senza, il custom domain si sgancia.
+          cname: beatriceferrarinutrizionista.it
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
