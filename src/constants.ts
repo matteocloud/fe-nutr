@@ -25,3 +25,6 @@ export const CONTACT_DETAILS: ContactInfo = {
 
 export const WHATSAPP_MESSAGE =
   "Ciao Beatrice! Vorrei prenotare una consulenza. Sono [Nome].";
+
+export const PRIVACY_POLICY_URL =
+  "https://www.iubenda.com/privacy-policy/81601008";
