@@ -7,6 +7,8 @@ import { getAssetUrl } from "../utils/assets";
 const biographyText = `
 Mi chiamo Beatrice Ferrari, sono biologa nutrizionista iscritta all'Ordine dei Biologi della Lombardia sez. A (n. AA_101264). Sono specializzata in nutrizione sportiva, seguo atleti e amatori nel mondo dell'endurance e non solo!
 
+Sono laureata in Biotecnologie farmaceutiche della salute, con approfondimenti sulla nutrizione umana, oncologica e sulla nutraceutica, e ho conseguito un master in Nutrizione sportiva. Ho lavorato nella ricerca biomedica, e da lì nasce il mio approccio evidence-based.
+
 La parte di me che non trovi sulla carta? Mi alleno in palestra, tengo corsi Hyrox e vivo in prima persona la fatica, la soddisfazione e le sfide di chi fa sport con costanza. Questo mi ha insegnato qualcosa che i libri da soli non possono darti — capire davvero cosa significa ottimizzare il corpo dall'interno.
 
 Insegno anche biologia al liceo, e questa doppia vita mi ha reso una comunicatrice migliore: so spiegare concetti complessi in modo chiaro, senza perdere il rigore scientifico.

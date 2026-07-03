@@ -18,7 +18,7 @@ const Footer = () => {
                   Iscritta all&apos;Ordine dei Biologi della Lombardia n. AA_101264
                 </p>
                 <p className="text-sm text-slate-400">
-                  P.IVA: da aggiungere
+                  P.IVA 04135520122
                 </p>
               </div>
             </div>
