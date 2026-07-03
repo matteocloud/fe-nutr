@@ -26,11 +26,9 @@ const Hero = () => {
             id="hero-title"
             className="font-heading text-3xl font-extrabold leading-tight text-slate-900 sm:text-5xl lg:text-6xl"
           >
-            Mangi bene.
+            Allena il corpo.
             <br />
-            Ti alleni meglio.
-            <br />
-            <span className="text-brand-primary">Vivi al massimo.</span>
+            Nutri la <span className="text-brand-primary">performance</span>.
           </h1>
           <div className="relative overflow-hidden rounded-3xl border border-brand-primary/20 bg-white shadow-soft md:hidden">
             <img
