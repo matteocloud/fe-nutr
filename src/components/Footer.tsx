@@ -1,4 +1,5 @@
 import LogoCB from "./LogoCB";
+import { PRIVACY_POLICY_URL } from "../constants";
 
 const Footer = () => {
   return (
@@ -58,6 +59,14 @@ const Footer = () => {
           <div className="flex flex-wrap justify-center gap-4 sm:justify-start">
             <a className="transition hover:text-white" href="#contact">
               Prenota una consulenza
+            </a>
+            <a
+              className="transition hover:text-white"
+              href={PRIVACY_POLICY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
             </a>
           </div>
         </div>
